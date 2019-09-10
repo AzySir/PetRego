@@ -1,7 +1,7 @@
 # PetRego 
 
 ### Set Up
-
+---
 <br />
 
 > Java Version
@@ -30,7 +30,7 @@ mvn clean package
 mvn spring-boot:run
 ```
 
-### API Docs
+## API Docs
 ---
 ## Pet API - v1.0 
 
