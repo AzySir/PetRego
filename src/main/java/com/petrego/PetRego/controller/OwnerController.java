@@ -2,12 +2,12 @@ package com.petrego.PetRego.controller;
 
 import com.petrego.PetRego.exception.ResourceNotFoundException;
 import com.petrego.PetRego.model.Owner;
+import com.petrego.PetRego.model.Pet;
 import com.petrego.PetRego.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,6 +51,24 @@ public class OwnerController {
     public List<Owner> getOwnerByPetName(@PathVariable(value = "petname") String pet_name) {
         return ownerRepository.findByPets(pet_name);
     }
+
+    //Add Owner via Post (JSON Request)
+    @PostMapping(path = "/v1/owner", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity addOwner(@RequestBody Owner ownerDetails) {
+        Owner o = new Owner();
+        o.setFirstName(ownerDetails.getFirstName());
+        o.setLastName(ownerDetails.getLastName());
+        o.setDob(ownerDetails.getDob());
+        o.setPets(ownerDetails.getPets());
+        o.setEmail(ownerDetails.getEmail());
+        o.setPhoneNumber(ownerDetails.getPhoneNumber());
+        o.setPets(ownerDetails.getPets());
+        ownerRepository.save(o);
+        return ResponseEntity.ok().build();
+    }
+
+
 //
 //    //<--------- END OF API V1.0 ------------>
 //
