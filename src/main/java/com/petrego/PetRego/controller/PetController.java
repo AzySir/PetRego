@@ -29,6 +29,7 @@ public class PetController {
 
     //<------ API VERSION 1.0 ----------- >
 
+    // <!------------- GET -------------->
     // Get ALL pets
     @GetMapping("/v1/pets")
     public List<Pet> getAllPets() {
@@ -55,31 +56,43 @@ public class PetController {
         return filterByNameList;
     }
 
-    //Get Pet By Owner Id - This is returned as a list because the owner can have many pets
+    //Get Pet By Owner Id - This is returned as a    list because the owner can have many pets
     @GetMapping("/v1/pet/owner/{ownerid}")
     public List<Pet> getPetByOwnerId(@PathVariable(value = "ownerid") Long owner_id) {
-        return petRepository.findByOwnerId(owner_id);
+        List<Pet> petList = petRepository.findByOwnerId(owner_id);; //Retrieve SQL Query where the pet_name = value passed in API
+        List<Pet> filterByOwnerList = new ArrayList<Pet>(); //Declare a filtered list
+        //Loop through the unfiltered list and if the unfiltered list has the name then add it to the filter list
+        for (Pet p : petList) {
+            if (p.getOwnerId().equals(owner_id)) {
+                filterByOwnerList.add(p);
+            }
+        }
+        return filterByOwnerList;
     }
 
+
+
+
+    //<!---------- PUT / POST ---------------->
     //PUT - Single Pet
     @PutMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity addPet(@RequestBody Pet petDetails) {
+    public ResponseEntity<String> addPet(@RequestBody Pet petDetails) {
         Pet p = new Pet(petDetails.getPetName(), petDetails.getPetType(), petDetails.getFoodType(petDetails.getPetType()), petDetails.getAge(), petDetails.getOwnerId());
         petRepository.save(p);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>("Successfully added Pet", HttpStatus.OK);
     }
 
     //POST - Batch of Pets (JSON Array)
     @PostMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity addPet(@RequestBody Pet[] petDetails) {
+    public ResponseEntity<String> addPet(@RequestBody Pet[] petDetails) {
         for (Pet p : petDetails) {
             Pet pet = new Pet(p.getPetName(), p.getPetType(), p.getFoodType(p.getPetType()), p.getAge(), p.getOwnerId());
             System.out.println(pet.toString());
             petRepository.save(pet);
         }
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>("Successfully added Pet", HttpStatus.OK);
     }
 
     //<--------- END OF API V1.0 ------------>
@@ -96,7 +109,7 @@ public class PetController {
     //Multiple API Version handling
     @GetMapping("/v2/pet/owner/{ownerid}")
     public List<Pet> getPetByOwnerIdNew(@PathVariable(value = "ownerid") Long owner_id) {
-        return petRepository.findByOwnerIdNew(owner_id);
+        return petRepository.findByOwnerId(owner_id);
     }
 
     //<!---- END OF API V2.0 ----------- >

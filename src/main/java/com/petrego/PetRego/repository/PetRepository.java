@@ -30,11 +30,7 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
         @Query(value = "SELECT p FROM Pet p WHERE p.pet_name = ?1")
         List<Pet> findByNameNew(String search_name);
 
-        //V1 API - Query to find selected columns by Owner Id (display legacy version)
-        @Query(value = "SELECT ID, PET_NAME, PET_TYPE, FOOD FROM PETS WHERE OWNER_ID = ?1", nativeQuery = true)
-        List<Pet> findByOwnerId(Long owner_id);
-
-        //V2 API - Query to find by Owner Id (display enhancement to gather more information)
+        //Query to find selected columns  (display legacy version)
         @Query(value = "SELECT * FROM PETS WHERE OWNER_ID = ?1", nativeQuery = true)
-        List<Pet> findByOwnerIdNew(Long owner_id);
+        List<Pet> findByOwnerId(Long owner_id);
 }
