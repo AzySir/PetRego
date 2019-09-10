@@ -37,4 +37,20 @@ public class Owner {
     private String pets;
 
 
+    //<--------------- Constructors ------------------>
+
+    public Owner() { }
+
+    public Owner(String first_name, String last_name, String dob, String email, Long phone_number, String pets) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.dob = dob;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.pets = pets;
+    }
+
+    //<------------- End of Constructors --------------->
+
+    
 }
