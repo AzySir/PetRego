@@ -46,10 +46,26 @@ public class Pet {
 
 
     //<!-------- Constructors ---------->
+    //Empty Instance
+    public Pet() {
 
+    }
 
+    //Constructor for V1 Purpose
+    public Pet(String pet_name, String type, String food) {
+        this.pet_name = pet_name;
+        this.type = type;
+        this.food = food;
+    }
 
-
+    //Constructor vor V2 Purpose
+    public Pet(String pet_name, String type, String food, int age, Long owner_id) {
+        this.pet_name = pet_name;
+        this.type = type;
+        this.food = food;
+        this.age = age;
+        this.owner_id = owner_id;
+    }
 
 
     //<------ Getter and Setters for Above Variables ------>
