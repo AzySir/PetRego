@@ -16,7 +16,6 @@ GET - "/v1/pet/{id}"
 
 ```
 GET - "/v1/pet/name/{petname}"
-
 ```
 
 ```
