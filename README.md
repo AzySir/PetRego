@@ -40,6 +40,18 @@ mvn clean package
 mvn spring-boot:run
 ```
 
+> Once the application is runnin you may access the H2 Database from the following url
+
+``` 
+http://localhost:8080/h2-console
+```
+
+> Due to the absence of security no Username or Password is required to sign in 
+
+
+
+<br />
+
 ## API Docs
 
 ### Pet API - v1.0 
