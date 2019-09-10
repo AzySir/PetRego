@@ -4,7 +4,7 @@
 <h2> API Docs </h2>
 <h3> Pet API </h3>
 
-<h4> Pet API - v1.0
+<h4> Pet API - v1.0</h4><br />
 GET - "/v1/pets"<br />
 GET - "/v1/pet/{id}"<br />
 GET - "/v1/pet/name/{petname}"<br />
