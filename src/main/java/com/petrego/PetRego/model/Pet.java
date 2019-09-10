@@ -21,7 +21,7 @@ public class Pet {
 
     //Pet Id for Searching up - use of Api
     @Id
-    @GeneratedValue(strategy = GenerateType.Auto)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     //Pet Name
@@ -46,7 +46,7 @@ public class Pet {
 
 
     //<!-------- Constructors ---------->
-    
+
 
 
 
