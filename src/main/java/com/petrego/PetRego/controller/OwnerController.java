@@ -56,16 +56,11 @@ public class OwnerController {
     @PostMapping(path = "/v1/owner", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity addOwner(@RequestBody Owner ownerDetails) {
-        Owner o = new Owner();
-        o.setFirstName(ownerDetails.getFirstName());
-        o.setLastName(ownerDetails.getLastName());
-        o.setDob(ownerDetails.getDob());
-        o.setPets(ownerDetails.getPets());
-        o.setEmail(ownerDetails.getEmail());
-        o.setPhoneNumber(ownerDetails.getPhoneNumber());
-        o.setPets(ownerDetails.getPets());
-        ownerRepository.save(o);
-        return ResponseEntity.ok().build();
+        //Create the object from the JSON Post Request
+        Owner o = new Owner(ownerDetails.getFirstName(), ownerDetails.getLastName(), ownerDetails.getDob(),
+                ownerDetails.getEmail(), ownerDetails.getPhoneNumber(), ownerDetails.getPets());
+        ownerRepository.save(o); //Inject into Database via JPA
+        return ResponseEntity.ok().build(); //Return Response
     }
 
 
