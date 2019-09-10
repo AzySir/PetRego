@@ -37,5 +37,4 @@ import org.springframework.web.bind.annotation.ResponseStatus;
         public Object getFieldValue() {
             return fieldValue;
         }
-    }
 }
