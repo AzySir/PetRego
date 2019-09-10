@@ -26,7 +26,7 @@ mvn clean package
 
 > Run Application 
 
-``
+```
 mvn spring-boot:run
 ```
 
