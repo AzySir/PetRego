@@ -9,11 +9,16 @@
 ```
 GET - "/v1/pets"
 ```
+
+<br />
+
 > Retrieve Pet Information By Id
 
 ```
 GET - "/v1/pet/{id}"
 ```
+
+<br />
 
 > Retrieve Pet by Name
 
@@ -21,11 +26,15 @@ GET - "/v1/pet/{id}"
 GET - "/v1/pet/name/{petname}"
 ```
 
+<br />
+
 > Retrieve Pet By Owner Id
 
 ```
 GET - "/v1/pet/owner/{ownerid}"
 ```
+
+<br />
 
 > Add Single Pet via JSON
 
@@ -33,11 +42,16 @@ GET - "/v1/pet/owner/{ownerid}"
 PUT - "/v1/pet"
 ```
 
+<br />
+
 > Add Multiple Pets via JSON Array
 
 ```
 POST - "/v1/pet"
 ```
+
+<br />
+<br />
 
 ## Pet API v2.0
 
