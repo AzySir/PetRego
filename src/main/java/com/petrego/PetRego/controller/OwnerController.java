@@ -29,23 +29,23 @@ public class OwnerController {
 
     //<------ API VERSION 1.0 ----------- >
 
-    // Get ALL pets
+    // Get Owner pets
     @GetMapping("/v1/owners")
     public List<Owner> getAllPets() {
         return ownerRepository.findAll();
     }
 
-    //Get Pet By Id
+    //Get Owner By Id
     @GetMapping("/v1/owner/{id}")
     public Owner getPetById(@PathVariable(value = "id") Long owner_id) {
         return ownerRepository.findById(owner_id).orElseThrow(() -> new ResourceNotFoundException("Owner", "Id", owner_id));
     }
 
-//    //Get Pet(s) By Name
-//    @GetMapping("/v1/owner/name/{name}")
-//    public List<Owner> getOwnerByName(@PathVariable(value = "name") String search_name) {
-//        return ownerRepository.findByName(search_name);
-//    }
+    //Get Owner By Name
+    @GetMapping("/v1/owner/name/{name}")
+    public List<Owner> getOwnerByName(@PathVariable(value = "name") String search_name) {
+        return ownerRepository.findByName(search_name);
+    }
 //
 //    //Get Pet By Owner Id - This is returned as a list because the owner can have many pets
 //    @GetMapping("/v1/pet/owner/{ownerid}")
