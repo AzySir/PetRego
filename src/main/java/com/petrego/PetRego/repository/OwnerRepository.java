@@ -19,7 +19,7 @@ import java.util.List;
 public interface OwnerRepository extends JpaRepository<Owner, Long> {
 
     //NOT SURE IF THIS WILL WORK - Requires testing and more indepth analysis
-    @Query(value = "SELECT o.id, o.first_name, o.last_name, o.dob, o.email, o.phone_number, o.pet FROM Owner o WHERE first_name = ?1 OR last_name = ?1")
+    @Query(value = "SELECT o.id, o.first_name, o.last_name, o.dob, o.email, o.phone_number, o.pets FROM Owner o WHERE first_name = ?1 OR last_name = ?1")
     List<Owner> findByName(String search_name);
 
 

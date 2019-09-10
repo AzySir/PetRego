@@ -32,7 +32,7 @@ public class Owner {
     private Long phone_number;
 
     //Owners Pets Id
-    @Column(name = "pet", nullable = false)
+    @Column(name = "pets", nullable = false)
     private String pets;
 
 
