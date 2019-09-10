@@ -112,13 +112,13 @@ POST - "/v1/pet"
 > Get Pet By Name - This will return more columns as v2.0 has been enhanced
 
 ```
-"/v2/pet/name/{name}"
+GET - "/v2/pet/name/{name}"
 ```
 
 > Get Pet By Owner Id - This will return more columns as v2.0 has been enhanced
 
 ```
-"/v2/pet/owner/{ownerid}"
+GET - "/v2/pet/owner/{ownerid}"
 ```
 
 ### Owner API 
