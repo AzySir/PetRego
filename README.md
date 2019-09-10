@@ -7,7 +7,7 @@
 
 
 ```
-git clone http://github.com/AzySir/PetRego
+git clone https://github.com/AzySir/PetRego.git
 ```
 
 > Ensure the below Java Version is installed on your system
