@@ -1,7 +1,6 @@
 # PetRego
----
-
 # API Docs
+---
 ## Pet API - v1.0 
 
 <br />
