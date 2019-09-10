@@ -5,10 +5,22 @@
 <h3> Pet API </h3>
 
 <h4> Pet API - v1.0</h4><br />
+```
 GET - "/v1/pets"<br />
+```
+
+```
 GET - "/v1/pet/{id}"<br />
+```
+
+```
 GET - "/v1/pet/name/{petname}"<br />
+
+```
+
+```
 GET - "/v1/pet/owner/{ownerid}"<br />
+```
 
 PUT - "/v1/pet"<br />
 POST - "/v1/pet"<br />
