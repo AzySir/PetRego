@@ -46,39 +46,33 @@ public class OwnerController {
     public List<Owner> getOwnerByName(@PathVariable(value = "name") String search_name) {
         return ownerRepository.findByName(search_name);
     }
-    //Get Pet By Owner Id - This is returned as a list because the owner can have many pets
+
+    //Get Pet By Owner Id - This is returned as a list because the owner can have many  pets
     @GetMapping("/v1/owner/pets/{petname}")
     public List<Owner> getOwnerByPetName(@PathVariable(value = "petname") String pet_name) {
         return ownerRepository.findByPets(pet_name);
     }
 
     //Add Owner via Post (JSON Request)
-    @PostMapping(path = "/v1/owner", consumes = "application/json", produces = "application/json")
+    @PutMapping(path = "/v1/owner", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity addOwner(@RequestBody Owner ownerDetails) {
+    public ResponseEntity<String> addOwner(@RequestBody Owner ownerDetails) {
         //Create the object from the JSON Post Request
         Owner o = new Owner(ownerDetails.getFirstName(), ownerDetails.getLastName(), ownerDetails.getDob(),
                 ownerDetails.getEmail(), ownerDetails.getPhoneNumber(), ownerDetails.getPets());
         ownerRepository.save(o); //Inject into Database via JPA
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>("Successfully added Single", HttpStatus.OK);
     }
 
-
-//
-//    //<--------- END OF API V1.0 ------------>
-//
-//
-//    // <----- API VERSION 2.0 - NEW --------->
-//
-//    //Multiple API Version handling
-//    @GetMapping("/v2/pet/name/{name}")
-//    public List<Pet> getPetByNameNew(@PathVariable(value = "name") String pet_name) {
-//        return ownerRepository.findByNameNew(pet_name);
-//    }
-//
-//    //Multiple API Version handling
-//    @GetMapping("/v2/pet/owner/{ownerid}")
-//    public List<Pet> getPetByOwnerIdNew(@PathVariable(value = "ownerid") Long owner_id) {
-//        return ownerRepository.findByOwnerIdNew(owner_id);
-//    }
+    //Add Owner via Post (JSON Request)
+    @PostMapping(path = "/v1/owner", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<String> addOwner(@RequestBody Owner[] ownerDetails) {
+            for (Owner o : ownerDetails) {
+                Owner owner = new Owner(o.getFirstName(), o.getLastName(), o.getDob(),
+                        o.getEmail(), o.getPhoneNumber(), o.getPets());
+                ownerRepository.save(owner);
+            }
+        return new ResponseEntity<>("Successfully added Batch!", HttpStatus.OK);
+    }
 }

@@ -69,6 +69,7 @@ public class Pet {
         this.pet_food = getFoodType(type);
         this.age = age;
         this.owner_id = owner_id;
+        System.out.println(pet_name.getClass().getName());
     }
 
     //<------ Getter and Setters for Above Variables ------>
