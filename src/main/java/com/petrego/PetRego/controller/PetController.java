@@ -44,10 +44,11 @@ public class PetController {
 //    Get Pet(s) By Name
     @GetMapping("/v1/pet/name/{petname}")
     public List<Pet> getPetByName(@PathVariable(value = "petname") String pet_name) {
-        List<Pet> petList = petRepository.findByName(pet_name);
-        List<Pet> filterByNameList = new ArrayList<Pet>();
+        List<Pet> petList = petRepository.findByName(pet_name); //Retrieve SQL Query where the pet_name = value passed in API
+        List<Pet> filterByNameList = new ArrayList<Pet>(); //Declare a filtered list
+        //Loop through the unfiltered list and if the unfiltered list has the name then add it to the filter list
         for (Pet p : petList) {
-            if (p.getPetName() == pet_name) {
+            if (p.getPetName().equals(pet_name)) {
                 filterByNameList.add(p);
             }
         }
@@ -60,7 +61,7 @@ public class PetController {
         return petRepository.findByOwnerId(owner_id);
     }
 
-//    @PostMapping(path = "/v1/pet", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE} )
+    //@PostMapping(path = "/v1/pet", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE} )
     @PostMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity addPet(@RequestBody Pet petDetails) {
