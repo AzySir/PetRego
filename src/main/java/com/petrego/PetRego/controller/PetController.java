@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Scope: This class handles the Pet API
@@ -29,7 +30,6 @@ public class PetController {
     //<------ API VERSION 1.0 ----------- >
 
     // Get ALL pets
-
     @GetMapping("/v1/pets")
     public List<Pet> getAllPets() {
         return petRepository.findAll();
@@ -41,7 +41,7 @@ public class PetController {
         return petRepository.findById(pet_id).orElseThrow(() -> new ResourceNotFoundException("Pet", "Id", pet_id));
     }
 
-//    Get Pet(s) By Name
+    //Get Pet(s) By Name
     @GetMapping("/v1/pet/name/{petname}")
     public List<Pet> getPetByName(@PathVariable(value = "petname") String pet_name) {
         List<Pet> petList = petRepository.findByName(pet_name); //Retrieve SQL Query where the pet_name = value passed in API
@@ -61,17 +61,24 @@ public class PetController {
         return petRepository.findByOwnerId(owner_id);
     }
 
-    //@PostMapping(path = "/v1/pet", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE} )
-    @PostMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
+    //PUT - Single Pet
+    @PutMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity addPet(@RequestBody Pet petDetails) {
-        Pet p = new Pet();
-        p.setPetName(petDetails.getPetName());
-        p.setPetType(petDetails.getPetType());
-        p.setAge(petDetails.getAge());
-        p.setOwnerId(petDetails.getOwnerId());
-        p.setPetFood(p.getFoodType(petDetails.getPetType()));
+        Pet p = new Pet(petDetails.getPetName(), petDetails.getPetType(), petDetails.getFoodType(petDetails.getPetType()), petDetails.getAge(), petDetails.getOwnerId());
         petRepository.save(p);
+        return ResponseEntity.ok().build();
+    }
+
+    //POST - Batch of Pets (JSON Array)
+    @PostMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity addPet(@RequestBody Pet[] petDetails) {
+        for (Pet p : petDetails) {
+            Pet pet = new Pet(p.getPetName(), p.getPetType(), p.getFoodType(p.getPetType()), p.getAge(), p.getOwnerId());
+            System.out.println(pet.toString());
+            petRepository.save(pet);
+        }
         return ResponseEntity.ok().build();
     }
 

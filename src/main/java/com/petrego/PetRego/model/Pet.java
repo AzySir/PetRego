@@ -62,7 +62,7 @@ public class Pet {
         this.pet_food = getFoodType(pet_type);
     }
 
-    //Constructor vor V2 Purpose
+    //Constructor for V2 Purpose
     public Pet(String pet_name, String type, String pet_food, int age, Long owner_id) {
         this.pet_name = pet_name;
         this.pet_type = type;
