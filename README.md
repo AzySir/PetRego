@@ -1,10 +1,10 @@
 # PetRego
 ---
 
-<h2> API Docs </h2>
-<h3> Pet API </h3>
+## API Docs
+### Pet API
 
-<h4> Pet API - v1.0</h4><br />
+### Pet API - v1.0 
 
 ```
 GET - "/v1/pets"
