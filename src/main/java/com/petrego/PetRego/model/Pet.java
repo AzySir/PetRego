@@ -33,7 +33,7 @@ public class Pet {
     private String pet_type;
 
     //Food - Bones / Fish / Corn / Mice
-    @Column(name = "pet_food", nullable = false)
+    @Column(name = "pet_food")
     private String pet_food;
 
     //Age as part of v2 API
@@ -46,10 +46,11 @@ public class Pet {
 
     //<!-------- Constructors ---------->
 
-        //Empty Instance
+    //Empty Instance
     public Pet() {
 
     }
+
 
     //Constructor for V1 Purpose
     public Pet(String pet_name, String pet_type, String pet_food) {
@@ -89,6 +90,8 @@ public class Pet {
         }
         return food;
     }
+
+
     public Long getId() {
         return id;
     }
@@ -105,19 +108,19 @@ public class Pet {
         this.pet_name = pet_name;
     }
 
-    public String getType() {
+    public String getPetType() {
         return pet_type;
     }
 
-    public void setType(String type) {
-        this.pet_type = type;
+    public void setPetType(String pet_type) {
+        this.pet_type = pet_type;
     }
 
-    public String getFood() {
+    public String getPetFood() {
         return pet_food;
     }
 
-    public void setFood(String pet_food) {
+    public void setPetFood(String pet_food) {
         this.pet_food = pet_food;
     }
 
@@ -138,4 +141,17 @@ public class Pet {
     }
 
 
+
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", pet_name='" + pet_name + '\'' +
+                ", pet_type='" + pet_type + '\'' +
+                ", pet_food='" + pet_food + '\'' +
+                ", age=" + age +
+                ", owner_id=" + owner_id +
+                '}';
+    }
 }
