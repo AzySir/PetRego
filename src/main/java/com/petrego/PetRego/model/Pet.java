@@ -15,8 +15,8 @@ import javax.persistence.*;
  *
  */
 
-@Entity
-@Table(name = "pets")
+@Entity //Create Entity
+@Table(name = "pets") //Create a Table for owners in H2
 @EntityListeners(Pet.class)
 public class Pet {
 

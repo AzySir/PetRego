@@ -19,8 +19,8 @@ import java.util.List;
  * @date 10th September 2019
  *
  */
-@RestController
-@RequestMapping("/api")
+@RestController //Declare RestController
+@RequestMapping("/api") //Map the main URI to /api
 public class PetController {
 
     @Autowired

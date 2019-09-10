@@ -2,12 +2,12 @@ package com.petrego.PetRego.controller;
 
 import com.petrego.PetRego.exception.ResourceNotFoundException;
 import com.petrego.PetRego.model.Owner;
+import com.petrego.PetRego.model.Pet;
 import com.petrego.PetRego.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,6 +51,20 @@ public class OwnerController {
     public List<Owner> getOwnerByPetName(@PathVariable(value = "petname") String pet_name) {
         return ownerRepository.findByPets(pet_name);
     }
+
+    //Add Owner via Post (JSON Request)
+    @PostMapping(path = "/v1/owner", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity addOwner(@RequestBody Owner ownerDetails) {
+        //Create the object from the JSON Post Request
+        Owner o = new Owner(ownerDetails.getFirstName(), ownerDetails.getLastName(), ownerDetails.getDob(),
+                ownerDetails.getEmail(), ownerDetails.getPhoneNumber(), ownerDetails.getPets());
+        ownerRepository.save(o); //Inject into Database via JPA
+//        return ResponseEntity.ok().build(); //Return Response
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
 //
 //    //<--------- END OF API V1.0 ------------>
 //

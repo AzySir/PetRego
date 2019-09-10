@@ -2,9 +2,18 @@ package com.petrego.PetRego.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "owners")
-@EntityListeners(Owner.class)
+/**
+ * @Scope: This class handles the Owner information
+ *
+ * @version 1.0
+ * @author Adam Sir
+ * @date 10th September 2019
+ *
+ */
+
+@Entity //Create Entity
+@Table(name = "owners") //Create a Table for owners in H2
+@EntityListeners(Owner.class) //Set the entity listener
 public class Owner {
 
     @Id
@@ -29,7 +38,7 @@ public class Owner {
 
     //Owners Phone Number
     @Column(name = "phone_number", nullable = false)
-    private Long phone_number;
+    private String phone_number;
 
     //Owners Pets Id
     @Column(name = "pets", nullable = false)
@@ -40,7 +49,7 @@ public class Owner {
 
     public Owner() { }
 
-    public Owner(String first_name, String last_name, String dob, String email, Long phone_number, String pets) {
+    public Owner(String first_name, String last_name, String dob, String email, String phone_number, String pets) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.dob = dob;
@@ -62,19 +71,19 @@ public class Owner {
         this.id = id;
     }
 
-    public String getFirst_name() {
+    public String getFirstName() {
         return first_name;
     }
 
-    public void setFirst_name(String first_name) {
+    public void setFirstName(String first_name) {
         this.first_name = first_name;
     }
 
-    public String getLast_name() {
+    public String getLastName() {
         return last_name;
     }
 
-    public void setLast_name(String last_name) {
+    public void setLastName(String last_name) {
         this.last_name = last_name;
     }
 
@@ -94,11 +103,11 @@ public class Owner {
         this.email = email;
     }
 
-    public Long getPhone_number() {
+    public String getPhoneNumber() {
         return phone_number;
     }
 
-    public void setPhone_number(Long phone_number) {
+    public void setPhoneNumber(String phone_number) {
         this.phone_number = phone_number;
     }
 
@@ -108,6 +117,19 @@ public class Owner {
 
     public void setPets(String pets) {
         this.pets = pets;
+    }
+
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", dob='" + dob + '\'' +
+                ", email='" + email + '\'' +
+                ", phone_number=" + phone_number +
+                ", pets='" + pets + '\'' +
+                '}';
     }
 
     //<!---------- End of Getters & Setters ---------->
