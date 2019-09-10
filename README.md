@@ -3,7 +3,14 @@
 ## Set Up
 <br />
 
-> Java Version
+> Clone Git Repository
+
+
+```
+git clone http://github.com/AzySir/PetRego
+```
+
+> Ensure the below Java Version is installed on your system
 
 ```
 java version "1.8.0_181"
@@ -15,7 +22,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
 
 <br />
 
-> Clean Install Packages
+> Run the Clean Package Maven command below 
 
 ```
 mvn clean package
@@ -85,8 +92,9 @@ POST - "/v1/pet"
 <br />
 
 ### Pet API v2.0
-<br />
 ---
+<br />
+
 > Get Pet By Name - This will return more columns as v2.0 has been enhanced
 
 ```
