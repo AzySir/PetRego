@@ -4,6 +4,9 @@ import com.petrego.PetRego.exception.ResourceNotFoundException;
 import com.petrego.PetRego.model.Pet;
 import com.petrego.PetRego.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,6 +51,20 @@ public class PetController {
     @GetMapping("/v1/pet/owner/{ownerid}")
     public List<Pet> getPetByOwnerId(@PathVariable(value = "ownerid") Long owner_id) {
         return petRepository.findByOwnerId(owner_id);
+    }
+
+//    @PostMapping(path = "/v1/pet", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE} )
+    @PostMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity addPet(@RequestBody Pet petDetails) {
+        Pet p = new Pet();
+        p.setPetName(petDetails.getPetName());
+        p.setPetType(petDetails.getPetType());
+        p.setAge(petDetails.getAge());
+        p.setOwnerId(petDetails.getOwnerId());
+        p.setPetFood(p.getFoodType(petDetails.getPetType()));
+        petRepository.save(p);
+        return ResponseEntity.ok().build();
     }
 
     //<--------- END OF API V1.0 ------------>
