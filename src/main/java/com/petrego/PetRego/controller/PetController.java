@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Scope: This class handles the Pet API
+ * @Scope: This class handles the Pet API
  *
  * @version 1.0
  * @author Adam Sir
