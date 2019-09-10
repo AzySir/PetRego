@@ -15,7 +15,7 @@ GET - "/v1/pet/{id}"
 ```
 
 ```
-GET - "/v1/pet/name/{petname}"<br />
+GET - "/v1/pet/name/{petname}"
 
 ```
 
@@ -32,7 +32,13 @@ POST - "/v1/pet"
 ```
 
 <h4>Pet API v2.0</h4>
-"/v2/pet/name/{name}
+
+```
+"/v2/pet/name/{name}"
+```
+
+```
 "/v2/pet/owner/{ownerid}"
+```
 
 <h3> Owner API </h3>
