@@ -44,8 +44,8 @@ public class Pet {
     @Column(name = "owner_id", nullable = false)
     private Long owner_id;
 
-
     //<!-------- Constructors ---------->
+
     //Empty Instance
     public Pet() {
 
@@ -55,20 +55,40 @@ public class Pet {
     public Pet(String pet_name, String type, String food) {
         this.pet_name = pet_name;
         this.type = type;
-        this.food = food;
+        this.food = getFood(type);
     }
 
     //Constructor vor V2 Purpose
     public Pet(String pet_name, String type, String food, int age, Long owner_id) {
         this.pet_name = pet_name;
         this.type = type;
-        this.food = food;
+        this.food = getFood(type);
         this.age = age;
         this.owner_id = owner_id;
     }
 
-
     //<------ Getter and Setters for Above Variables ------>
+
+    public String getFood(String type) {
+        String food;
+        switch(type) {
+            case "Dog":
+                food = "Bones";
+                break;
+            case "Cat":
+                food = "Fish";
+                break;
+            case "Chicken":
+                food = "Corn";
+                break;
+            case "Snake":
+                food = "Mice";
+                break;
+            default:
+                food = "TBC";
+        }
+        return food;
+    }
     public Long getId() {
         return id;
     }
