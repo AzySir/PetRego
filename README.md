@@ -59,7 +59,8 @@ POST - "/v1/pet"
 <br />
 
 ## Pet API v2.0
-
+<br />
+<br />
 > Get Pet By Name - This will return more columns as v2.0 has been enhanced
 
 ```
