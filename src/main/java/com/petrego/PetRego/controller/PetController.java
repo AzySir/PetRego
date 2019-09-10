@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -16,9 +17,15 @@ public class PetController {
     PetRepository petRepository;
     //Get ALL pets
     @GetMapping("/v1/pets")
+    public List<Pet> getAllPets() {
+        return petRepository.findAll();
+    }
 
     //Get Pet By Id
     @GetMapping("/v1/pet/{id}")
+    public List<Pet> getPetById() {
+        
+    }
 
     //Get Pet(s) By Name
     @GetMapping("/v1/pet/name/{name}")
