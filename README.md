@@ -1,7 +1,6 @@
 # PetRego 
 
-### Set Up
----
+## Set Up
 <br />
 
 > Java Version
@@ -31,10 +30,9 @@ mvn spring-boot:run
 ```
 
 ## API Docs
----
-## Pet API - v1.0 
 
-<br />
+### Pet API - v1.0 
+---
 <br />
 
 > Retrieve ALL pets 
@@ -86,9 +84,9 @@ POST - "/v1/pet"
 <br />
 <br />
 
-## Pet API v2.0
+### Pet API v2.0
 <br />
-<br />
+---
 > Get Pet By Name - This will return more columns as v2.0 has been enhanced
 
 ```
@@ -101,8 +99,8 @@ POST - "/v1/pet"
 "/v2/pet/owner/{ownerid}"
 ```
 
-## Owner API 
-
+### Owner API 
+---
 <br />
 <br />
 
