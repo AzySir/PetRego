@@ -29,19 +29,19 @@ public class Pet {
     private String pet_name;
 
     //Type of Pet - Dog / Cat / Chicken / Snake
-    @Column(name = "type", nullable = false)
-    private String type;
+    @Column(name = "pet_type", nullable = false)
+    private String pet_type;
 
     //Food - Bones / Fish / Corn / Mice
-    @Column(name = "food", nullable = false)
-    private String food;
+    @Column(name = "pet_food", nullable = false)
+    private String pet_food;
 
     //Age as part of v2 API
-    @Column(name = "age", nullable = false)
+    @Column(name = "age")
     private int age;
 
     //Owner_id to link back to owner. Also a search value via api
-    @Column(name = "owner_id", nullable = false)
+    @Column(name = "owner_id")
     private Long owner_id;
 
     //<!-------- Constructors ---------->
@@ -52,24 +52,24 @@ public class Pet {
     }
 
     //Constructor for V1 Purpose
-    public Pet(String pet_name, String type, String food) {
+    public Pet(String pet_name, String pet_type, String pet_food) {
         this.pet_name = pet_name;
-        this.type = type;
-        this.food = getFood(type);
+        this.pet_type = pet_type;
+        this.pet_food = getFoodType(pet_type);
     }
 
     //Constructor vor V2 Purpose
-    public Pet(String pet_name, String type, String food, int age, Long owner_id) {
+    public Pet(String pet_name, String type, String pet_food, int age, Long owner_id) {
         this.pet_name = pet_name;
-        this.type = type;
-        this.food = getFood(type);
+        this.pet_type = type;
+        this.pet_food = getFoodType(type);
         this.age = age;
         this.owner_id = owner_id;
     }
 
     //<------ Getter and Setters for Above Variables ------>
 
-    public String getFood(String type) {
+    public String getFoodType(String type) {
         String food;
         switch(type) {
             case "Dog":
@@ -106,19 +106,19 @@ public class Pet {
     }
 
     public String getType() {
-        return type;
+        return pet_type;
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.pet_type = type;
     }
 
     public String getFood() {
-        return food;
+        return pet_food;
     }
 
-    public void setFood(String food) {
-        this.food = food;
+    public void setFood(String pet_food) {
+        this.pet_food = pet_food;
     }
 
     public int getAge() {
