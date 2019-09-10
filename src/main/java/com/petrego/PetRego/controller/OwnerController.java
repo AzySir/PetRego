@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Scope: This is the API Controller for the Owner Class
+ * @Scope: This is the API Controller for the Owner Class
  *
  * @version 1.0
  * @author Adam Sir
@@ -46,12 +46,11 @@ public class OwnerController {
     public List<Owner> getOwnerByName(@PathVariable(value = "name") String search_name) {
         return ownerRepository.findByName(search_name);
     }
-//
-//    //Get Pet By Owner Id - This is returned as a list because the owner can have many pets
-//    @GetMapping("/v1/pet/owner/{ownerid}")
-//    public List<Pet> getPetByOwnerId(@PathVariable(value = "ownerid") Long owner_id) {
-//        return ownerRepository.findByOwnerId(owner_id);
-//    }
+    //Get Pet By Owner Id - This is returned as a list because the owner can have many pets
+    @GetMapping("/v1/owner/pets/{petname}")
+    public List<Owner> getOwnerByPetName(@PathVariable(value = "petname") String pet_name) {
+        return ownerRepository.findByPets(pet_name);
+    }
 //
 //    //<--------- END OF API V1.0 ------------>
 //

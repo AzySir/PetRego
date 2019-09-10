@@ -4,14 +4,12 @@ import com.petrego.PetRego.exception.ResourceNotFoundException;
 import com.petrego.PetRego.model.Pet;
 import com.petrego.PetRego.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /**
- * Scope: This class handles the Pet API
+ * @Scope: This class handles the Pet API
  *
  * @version 1.0
  * @author Adam Sir
@@ -28,6 +26,7 @@ public class PetController {
     //<------ API VERSION 1.0 ----------- >
 
     // Get ALL pets
+
     @GetMapping("/v1/pets")
     public List<Pet> getAllPets() {
         return petRepository.findAll();
@@ -40,8 +39,8 @@ public class PetController {
     }
 
     //Get Pet(s) By Name
-    @GetMapping("/v1/pet/name/{name}")
-    public List<Pet> getPetByName(@PathVariable(value = "name") String pet_name) {
+    @GetMapping("/v1/pet/name/{petname}")
+    public List<Pet> getPetByName(@PathVariable(value = "petname") String pet_name) {
         return petRepository.findByName(pet_name);
     }
 
