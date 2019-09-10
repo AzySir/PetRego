@@ -1,5 +1,6 @@
 package com.petrego.PetRego.controller;
 
+import com.petrego.PetRego.exception.ResourceNotFoundException;
 import com.petrego.PetRego.model.Pet;
 import com.petrego.PetRego.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
