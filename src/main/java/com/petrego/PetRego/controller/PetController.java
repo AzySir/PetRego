@@ -75,7 +75,7 @@ public class PetController {
 
     //<!---------- PUT / POST ---------------->
     //PUT - Single Pet
-    @PutMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
+        @PutMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> addPet(@RequestBody Pet petDetails) {
         Pet p = new Pet(petDetails.getPetName(), petDetails.getPetType(), petDetails.getFoodType(petDetails.getPetType()), petDetails.getAge(), petDetails.getOwnerId());
