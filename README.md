@@ -1,5 +1,36 @@
 # PetRego 
 <br />
+
+### Set Up
+
+<br />
+
+> Java Version
+
+```
+java version "1.8.0_181"
+Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
+```
+
+## To Run Application
+
+<br />
+
+> Clean Install Packages
+
+```
+mvn clean package
+```
+
+<br />
+
+> Run Application 
+
+``
+mvn spring-boot:run
+```
+
 ### API Docs
 ---
 ## Pet API - v1.0 
