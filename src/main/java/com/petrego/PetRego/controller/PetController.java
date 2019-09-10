@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class PetController {
-    
+
+    @Autowired
+    PetRepository petRepository;
     //Get ALL pets
     @GetMapping("/v1/pets")
 
