@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -20,22 +21,13 @@ import java.util.List;
  */
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Long> {
-//        @Repository
-//        public interface AuctionRepository extends CrudRepository<Auction, String>{
-//
-//                @Query("from Auction a join a.category c where c.name=:categoryName")
-//                public Iterable<Auction> findByCategory(String categoryName);
-//
-//        }
-//        NOT SURE IF THIS WILL WORK - Requires testing and more indepth analysis
-//        @Query(value = "SELECT ID, PET_NAME, PET_TYPE, FOOD FROM PETS WHERE PET_NAME = ?1", nativeQuery = true)
-        @Query(value = "SELECT p.id, p.pet_name, p.pet_type, p.pet_food FROM Pet p WHERE p.pet_name = ?1")
-        List<Pet> findByName(String search_name);
-//      @Query("SELECT p.ID, p.PET_NAME, p.PET_TYPE, p.FOOD FROM PETS p WHERE p.PET_NAME = ?1")
 
+        //V1 Api Query - To Get ALL Pet Columns in the Database by Pet_Name via Custom Query(which includes enhancements)
+        @Query(value = "SELECT p FROM Pet p WHERE p.pet_name = ?1")
+        List<Pet> findByName(String search_name);
 
         //V2 Api Query - To Get ALL Pet Columns in the Database by Pet_Name via Custom Query(which includes enhancements)
-        @Query(value = "SELECT * FROM PETS WHERE PET_NAME = ?1", nativeQuery = true)
+        @Query(value = "SELECT p FROM Pet p WHERE p.pet_name = ?1")
         List<Pet> findByNameNew(String search_name);
 
         //V1 API - Query to find selected columns by Owner Id (display legacy version)

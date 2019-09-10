@@ -5,10 +5,10 @@ import com.petrego.PetRego.model.Pet;
 import com.petrego.PetRego.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,10 +41,17 @@ public class PetController {
         return petRepository.findById(pet_id).orElseThrow(() -> new ResourceNotFoundException("Pet", "Id", pet_id));
     }
 
-    //Get Pet(s) By Name
+//    Get Pet(s) By Name
     @GetMapping("/v1/pet/name/{petname}")
     public List<Pet> getPetByName(@PathVariable(value = "petname") String pet_name) {
-        return petRepository.findByName(pet_name);
+        List<Pet> petList = petRepository.findByName(pet_name);
+        List<Pet> filterByNameList = new ArrayList<Pet>();
+        for (Pet p : petList) {
+            if (p.getPetName() == pet_name) {
+                filterByNameList.add(p);
+            }
+        }
+        return filterByNameList;
     }
 
     //Get Pet By Owner Id - This is returned as a list because the owner can have many pets

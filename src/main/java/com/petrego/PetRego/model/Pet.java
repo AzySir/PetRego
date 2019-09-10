@@ -1,6 +1,7 @@
 package com.petrego.PetRego.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.petrego.PetRego.repository.PetRepository;
 
 import javax.persistence.*;
 
