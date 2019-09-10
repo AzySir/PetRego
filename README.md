@@ -4,6 +4,9 @@
 # API Docs
 ## Pet API - v1.0 
 
+<br />
+<br />
+
 > Retrieve ALL pets 
 
 ```
@@ -69,11 +72,16 @@ POST - "/v1/pet"
 
 ## Owner API 
 
+<br />
+<br />
+
 > Get ALL Owners
 
 ```
 GET - "/v1/owners"
 ```
+
+<br />
 
 > Get Owner By Id
 
@@ -81,11 +89,15 @@ GET - "/v1/owners"
 GET - "/v1/owner/{id}"
 ```
 
+<br />
+
 > Get Owner By Name (First_Name & Last_Name)
 
 ```
 GET - "/v1/owner/name/{name}"
 ```
+
+<br />
 
 > Get Owner by Pet Name
 
@@ -93,11 +105,15 @@ GET - "/v1/owner/name/{name}"
 GET - "/v1/owner/pets/{petname}"
 ```
 
+<br />
+
 > Add Single Owner (JSON)
 
 ```
 PUT - "/v1/owner"
 ```
+
+<br />
 
 > Add Batch of Owners (JSON Array)
 
