@@ -2,9 +2,18 @@ package com.petrego.PetRego.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "owners")
-@EntityListeners(Owner.class)
+/**
+ * @Scope: This class handles the Owner information
+ *
+ * @version 1.0
+ * @author Adam Sir
+ * @date 10th September 2019
+ *
+ */
+
+@Entity //Create Entity
+@Table(name = "owners") //Create a Table for owners in H2
+@EntityListeners(Owner.class) //Set the entity listener
 public class Owner {
 
     @Id
