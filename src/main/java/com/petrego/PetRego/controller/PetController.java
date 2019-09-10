@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class PetController {
-
-
+    
     //Get ALL pets
     @GetMapping("/v1/pets")
 
@@ -24,7 +23,7 @@ public class PetController {
 
     //Get Pet By Owner Id
     @GetMapping("/v1/pet/owner/{ownerid}")
-    
+
     //Multiple API Version handling
     @GetMapping("/v2/pet/name/{name}")
 
