@@ -60,7 +60,8 @@ public class OwnerController {
         Owner o = new Owner(ownerDetails.getFirstName(), ownerDetails.getLastName(), ownerDetails.getDob(),
                 ownerDetails.getEmail(), ownerDetails.getPhoneNumber(), ownerDetails.getPets());
         ownerRepository.save(o); //Inject into Database via JPA
-        return ResponseEntity.ok().build(); //Return Response
+//        return ResponseEntity.ok().build(); //Return Response
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 

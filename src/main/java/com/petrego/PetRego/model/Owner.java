@@ -29,7 +29,7 @@ public class Owner {
 
     //Owners Phone Number
     @Column(name = "phone_number", nullable = false)
-    private Long phone_number;
+    private String phone_number;
 
     //Owners Pets Id
     @Column(name = "pets", nullable = false)
@@ -40,7 +40,7 @@ public class Owner {
 
     public Owner() { }
 
-    public Owner(String first_name, String last_name, String dob, String email, Long phone_number, String pets) {
+    public Owner(String first_name, String last_name, String dob, String email, String phone_number, String pets) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.dob = dob;
@@ -94,11 +94,11 @@ public class Owner {
         this.email = email;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phone_number;
     }
 
-    public void setPhoneNumber(Long phone_number) {
+    public void setPhoneNumber(String phone_number) {
         this.phone_number = phone_number;
     }
 
