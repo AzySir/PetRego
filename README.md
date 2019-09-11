@@ -48,9 +48,6 @@ mvn spring-boot:run
 http://localhost:8080/h2-console
 ```
 
-> There have been Mocks added in the /mocks folder of the root directory. Import these into Postman and run the Mock requests to have data inserted
-
-
 > Below are some SQL Queries also you may be able to inject directly into H2-Database 
 
 ```
@@ -66,6 +63,22 @@ INSERT INTO pets (id, pet_type, pet_food, age, pet_name, owner_id) VALUES (465, 
 INSERT INTO pets (id, pet_type, pet_food, age, pet_name, owner_id) VALUES (134, 'Snake', 'Mice', 20, 'Voldimort', 789);
 
 ```
+
+<br />
+
+## Testing 
+
+<br />
+
+> To run Unit Tests use the following command in the terminal
+
+```
+mvn test
+```
+
+<br />
+
+> For API Tests there have been Mocks added in the /mocks folder of the root directory for Postman. Import these into Postman  Application and run the requests for CREATE and READ functionalities
 
 <br />
 
