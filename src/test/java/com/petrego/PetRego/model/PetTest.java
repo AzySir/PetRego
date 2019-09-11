@@ -39,6 +39,6 @@ public class PetTest {
 
     @Test
     public void getOwnerId() {
-        assertEquals(bucket.getOwnerId(), Long.valueOf(15L));
+        assertEquals(bucket.getOwnerId(), Long.valueOf(777L));
     }
 }

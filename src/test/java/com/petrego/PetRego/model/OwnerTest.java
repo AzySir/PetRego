@@ -42,6 +42,6 @@ public class OwnerTest {
 
     @Test
     public void getPets() {
-        assertEquals(adam.getPhoneNumber(),"Dog");
+        assertEquals(adam.getPets(),"Dog");
     }
 }
