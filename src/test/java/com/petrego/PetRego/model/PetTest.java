@@ -2,6 +2,7 @@ package com.petrego.PetRego.model;
 
 import com.petrego.PetRego.repository.PetRepository;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +12,7 @@ public class PetTest {
     Pet bucket;
 
 
-    @BeforeAll
+    @BeforeEach
     public void SetUp() {
         bucket = new Pet("Bucket", "Dog", "Bones", 15, 777L);
     }

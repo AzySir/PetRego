@@ -89,7 +89,6 @@ public class PetController {
     public ResponseEntity<String> addPet(@RequestBody Pet[] petDetails) {
         for (Pet p : petDetails) {
             Pet pet = new Pet(p.getPetName(), p.getPetType(), p.getFoodType(p.getPetType()), p.getAge(), p.getOwnerId());
-            System.out.println(pet.toString());
             petRepository.save(pet);
         }
         return new ResponseEntity<>("Successfully added Pet", HttpStatus.OK);
