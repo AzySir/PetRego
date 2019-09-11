@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "2a57d238-4066-4f99-8a8c-4712facab0b1",
+		"name": "Pets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Pet (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " [\n \t{\n        \"id\": 123,\n        \"petName\": \"Woof\",\n        \"petType\": \"Dog\"\n\t},\n    {\n        \"id\": 1,\n        \"age\": 0,\n        \"petName\": \"Woof\",\n        \"petType\": \"Dog\",\n        \"ownerId\": null,\n        \"petFood\": \"Bones\"\n    },\n    {\n        \"id\": 134,\n        \"age\": 20,\n        \"petName\": \"Voldimort\",\n        \"petType\": \"Snake\",\n        \"ownerId\": 789,\n        \"petFood\": \"Mice\"\n    },\n    {\n        \"id\": 232,\n        \"age\": 7,\n        \"petName\": \"Whiskers\",\n        \"petType\": \"Cat\",\n        \"ownerId\": 232,\n        \"petFood\": \"Fish\"\n    },\n    {\n        \"id\": 465,\n        \"age\": 3,\n        \"petName\": \"Chook\",\n        \"petType\": \"Chicken\",\n        \"ownerId\": 444,\n        \"petFood\": \"Corn\"\n    },\n    {\n        \"id\": 911,\n        \"age\": 10,\n        \"petName\": \"Bucket\",\n        \"petType\": \"Dog\",\n        \"ownerId\": 777,\n        \"petFood\": \"Bones\"\n    }\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/pet",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pet"
+					]
+				},
+				"description": "Add Pet"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Pet (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 911,\n    \"age\": 10,\n    \"petName\": \"Bucket\",\n    \"petType\": \"Dog\",\n    \"ownerId\": 777,\n    \"petFood\": \"Bones\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/pet",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) ALL Pets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/pets",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/pet/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) By Name - v1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/pet/name/Bucket",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pet",
+						"name",
+						"Bucket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) By OwnerId - v1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/pet/owner/777",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pet",
+						"owner",
+						"777"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) By Name - v2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v2/pet/name/Bucket",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"pet",
+						"name",
+						"Bucket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) By OwnerId - v2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v2/pet/owner/777",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"pet",
+						"owner",
+						"777"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

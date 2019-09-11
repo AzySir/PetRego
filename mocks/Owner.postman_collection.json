@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "fb7a0ec8-8932-4ab7-8ac1-0fa7d426c2af",
+		"name": "Owner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add SINGLE Owner (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 789,\n        \"dob\": \"04/03/1992\",\n        \"email\": \"bob.adam@mypet.com\",\n        \"pets\": \"Dog\",\n        \"firstName\": \"NAH MATE YEAH MATE\",\n        \"lastName\": \"Adam\",\n        \"phoneNumber\": \"423489723\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/owner",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add BATCH Owner (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  [\n\t {\n\t        \"dob\": \"18/07/1979\",\n\t        \"email\": \"Jack.Mckenzie@mypet.com\",\n\t        \"pets\": \"Dog\",\n\t        \"firstName\": \"Jack\",\n\t        \"lastName\": \"Mckenzie\",\n\t        \"phoneNumber\": \"0423014388\"\n\t },\n     {\n        \"id\": 123,\n        \"dob\": \"04/03/1992\",\n        \"email\": \"adam.sir@mypet.com\",\n        \"pets\": \"Dog\",\n        \"firstName\": \"Adam\",\n        \"lastName\": \"Sir\",\n        \"phoneNumber\": \"400000000\"\n    },\n    {\n        \"id\": 232,\n        \"dob\": \"04/03/1992\",\n        \"email\": \"bob.builder@mypet.com\",\n        \"pets\": \"Cat\",\n        \"firstName\": \"Bob\",\n        \"lastName\": \"Builder\",\n        \"phoneNumber\": \"411111111\"\n    },\n    {\n        \"id\": 444,\n        \"dob\": \"04/03/1992\",\n        \"email\": \"super.man@mypet.com\",\n        \"pets\": \"Chicken\",\n        \"firstName\": \"Super\",\n        \"lastName\": \"Man\",\n        \"phoneNumber\": \"42323212323\"\n    },\n    {\n        \"id\": 777,\n        \"dob\": \"04/03/1992\",\n        \"email\": \"adam.johnson@mypet.com\",\n        \"pets\": \"Snake\",\n        \"firstName\": \"Adam\",\n        \"lastName\": \"Johnson\",\n        \"phoneNumber\": \"47777777\"\n    },\n    {\n        \"id\": 789,\n        \"dob\": \"04/03/1992\",\n        \"email\": \"bob.adam@mypet.com\",\n        \"pets\": \"Dog\",\n        \"firstName\": \"Bob\",\n        \"lastName\": \"Adam\",\n        \"phoneNumber\": \"423489723\"\n    }\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/owner",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) Owner By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/owner/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"owner",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ALL owners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/owners",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"owners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) Owner By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api//v1/owner/name",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"",
+						"v1",
+						"owner",
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(GET) Owner By PetName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api//v1/owner/pets/Dog",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"",
+						"v1",
+						"owner",
+						"pets",
+						"Dog"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
