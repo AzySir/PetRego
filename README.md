@@ -48,6 +48,25 @@ mvn spring-boot:run
 http://localhost:8080/h2-console
 ```
 
+> There have been Mocks added in the /mocks folder of the root directory. Import these into Postman and run the Mock requests to have data inserted
+
+
+> Below are some SQL Queries also you may be able to inject directly into H2-Database 
+
+```
+INSERT INTO owners (id, first_name, last_name, dob, email, phone_number, pets) VALUES (123, 'Adam', 'Sir', '04/03/1992','adam.sir@mypet.com', '0400000000', 'Dog');
+INSERT INTO owners (id, first_name, last_name, dob, email, phone_number, pets) VALUES (232, 'Bob', 'Builder', '04/03/1992','bob.builder@mypet.com', '0411111111', 'Cat');
+INSERT INTO owners (id, first_name, last_name, dob, email, phone_number, pets) VALUES (444, 'Super', 'Man', '04/03/1992','super.man@mypet.com', '042323212323', 'Chicken');
+INSERT INTO owners (id, first_name, last_name, dob, email, phone_number, pets) VALUES (777, 'Adam', 'Johnson', '04/03/1992','adam.johnson@mypet.com', '047777777','Snake');
+INSERT INTO owners (id, first_name, last_name, dob, email, phone_number, pets) VALUES (789, 'Bob', 'Adam', '04/03/1992','bob.adam@mypet.com', '0423489723', 'Dog');
+
+INSERT INTO pets (id, pet_type, pet_food, age, pet_name, owner_id) VALUES (911, 'Dog', 'Bones', 10, 'Bucket', 777);
+INSERT INTO pets (id, pet_type, pet_food, age, pet_name, owner_id) VALUES (232, 'Cat', 'Fish', 7, 'Whiskers', 232);
+INSERT INTO pets (id, pet_type, pet_food, age, pet_name, owner_id) VALUES (465, 'Chicken', 'Corn', 3, 'Chook',  444);
+INSERT INTO pets (id, pet_type, pet_food, age, pet_name, owner_id) VALUES (134, 'Snake', 'Mice', 20, 'Voldimort', 789);
+
+```
+
 <br />
 
 ## API Docs
