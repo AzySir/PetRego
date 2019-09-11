@@ -1,9 +1,8 @@
 package com.petrego.PetRego.model;
 
 import com.petrego.PetRego.repository.PetRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +11,7 @@ public class PetTest {
     Pet bucket;
 
 
-    @Before
+    @BeforeAll
     public void SetUp() {
         bucket = new Pet("Bucket", "Dog", "Bones", 15, 777L);
     }

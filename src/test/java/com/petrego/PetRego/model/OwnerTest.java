@@ -1,16 +1,14 @@
 package com.petrego.PetRego.model;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import javax.persistence.Column;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
 public class OwnerTest {
     Owner adam;
 
-    @Before
+    @BeforeAll
     public void Setup() {
         adam = new Owner("Adam", "Ramanaskus", "04/03/1992", "adam.r@business.com", "0412333444", "Dog");
     }
