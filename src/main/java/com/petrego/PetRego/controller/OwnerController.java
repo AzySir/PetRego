@@ -35,10 +35,17 @@ public class OwnerController {
         return ownerRepository.findAll();
     }
 
+
     //Get Owner By Id
     @GetMapping("/v1/owner/{id}")
     public Owner getPetById(@PathVariable(value = "id") Long owner_id) {
         return ownerRepository.findById(owner_id).orElseThrow(() -> new ResourceNotFoundException("Owner", "Id", owner_id));
+    }
+
+    //Get Owner By Id
+    @GetMapping("/v2/owner/name/{name}")
+    public List<Owner> findByNameNew(@PathVariable(value = "name") String search_name) {
+        return ownerRepository.findByNameNew(search_name);
     }
 
     //Get Owner By Name

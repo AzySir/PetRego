@@ -29,15 +29,15 @@ public class Pet {
 
     //Pet Name
     @Column(name = "pet_name", nullable = false)
-    private String pet_name;
+    private String petName;
 
     //Type of Pet - Dog / Cat / Chicken / Snake
     @Column(name = "pet_type", nullable = false)
-    private String pet_type;
+    private String petType;
 
     //Food - Bones / Fish / Corn / Mice
     @Column(name = "pet_food")
-    private String pet_food;
+    private String petFood;
 
     //Age as part of v2 API
     @Column(name = "age")
@@ -45,7 +45,7 @@ public class Pet {
 
     //Owner_id to link back to owner. Also a search value via api
     @Column(name = "owner_id")
-    private Long owner_id;
+    private Long ownerId;
 
     //<!-------- Constructors ---------->
 
@@ -56,19 +56,19 @@ public class Pet {
 
 
     //Constructor for V1 Purpose
-    public Pet(String pet_name, String pet_type, String pet_food) {
-        this.pet_name = pet_name;
-        this.pet_type = pet_type;
-        this.pet_food = getFoodType(pet_type);
+    public Pet(String petName, String petType, String petFood) {
+        this.petName = petName;
+        this.petType = petType;
+        this.petFood = getFoodType(petType);
     }
 
     //Constructor for V2 Purpose
-    public Pet(String pet_name, String type, String pet_food, int age, Long owner_id) {
-        this.pet_name = pet_name;
-        this.pet_type = type;
-        this.pet_food = getFoodType(type);
+    public Pet(String petName, String petType, String petFood, int age, Long ownerId) {
+        this.petName = petName;
+        this.petType = petType;
+        this.petFood = getFoodType(petType);
         this.age = age;
-        this.owner_id = owner_id;
+        this.ownerId = ownerId;
     }
 
     //<------ Getter and Setters for Above Variables ------>
@@ -104,27 +104,27 @@ public class Pet {
     }
 
     public String getPetName() {
-        return pet_name;
+        return petName;
     }
 
-    public void setPetName(String pet_name) {
-        this.pet_name = pet_name;
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 
     public String getPetType() {
-        return pet_type;
+        return petType;
     }
 
-    public void setPetType(String pet_type) {
-        this.pet_type = pet_type;
+    public void setPetType(String petType) {
+        this.petType = petType;
     }
 
     public String getPetFood() {
-        return pet_food;
+        return petFood;
     }
 
-    public void setPetFood(String pet_food) {
-        this.pet_food = pet_food;
+    public void setPetFood(String petFood) {
+        this.petFood = petFood;
     }
 
     public int getAge() {
@@ -136,11 +136,11 @@ public class Pet {
     }
 
     public Long getOwnerId() {
-        return owner_id;
+        return ownerId;
     }
 
-    public void setOwnerId(Long owner_id) {
-        this.owner_id = owner_id;
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
     }
 
 
@@ -150,11 +150,11 @@ public class Pet {
     public String toString() {
         return "Pet{" +
                 "id=" + id +
-                ", pet_name='" + pet_name + '\'' +
-                ", pet_type='" + pet_type + '\'' +
-                ", pet_food='" + pet_food + '\'' +
+                ", pet_name='" + petName + '\'' +
+                ", pet_type='" + petType + '\'' +
+                ", pet_food='" + petFood + '\'' +
                 ", age=" + age +
-                ", owner_id=" + owner_id +
+                ", owner_id=" + ownerId +
                 '}';
     }
 }
