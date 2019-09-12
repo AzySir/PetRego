@@ -22,11 +22,11 @@ public class Owner {
 
     //Owner first name
     @Column(name = "first_name", nullable = false)
-    private String first_name;
+    private String firstName;
 
     //Owner last name
     @Column(name = "last_name", nullable = false)
-    private String last_name;
+    private String lastName;
 
     //Owner Date of Birth
     @Column(name = "dob", nullable = false)
@@ -38,7 +38,7 @@ public class Owner {
 
     //Owners Phone Number
     @Column(name = "phone_number", nullable = false)
-    private String phone_number;
+    private String phoneNumber;
 
     //Owners Pets Id
     @Column(name = "pets", nullable = false)
@@ -49,13 +49,18 @@ public class Owner {
 
     public Owner() { }
 
-    public Owner(String first_name, String last_name, String dob, String email, String phone_number, String pets) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public Owner(String firstName, String lastName, String dob, String email, String phoneNumber, String pets) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.dob = dob;
         this.email = email;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.pets = pets;
+    }
+
+    public Owner(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     //<------------- End of Constructors --------------->
@@ -72,19 +77,19 @@ public class Owner {
     }
 
     public String getFirstName() {
-        return first_name;
+        return firstName;
     }
 
     public void setFirstName(String first_name) {
-        this.first_name = first_name;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return last_name;
+        return lastName;
     }
 
     public void setLastName(String last_name) {
-        this.last_name = last_name;
+        this.lastName = lastName;
     }
 
     public String getDob() {
@@ -104,11 +109,11 @@ public class Owner {
     }
 
     public String getPhoneNumber() {
-        return phone_number;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phone_number) {
-        this.phone_number = phone_number;
+        this.phoneNumber = phone_number;
     }
 
     public String getPets() {
@@ -123,11 +128,11 @@ public class Owner {
     public String toString() {
         return "Owner{" +
                 "id=" + id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                ", first_name='" + firstName + '\'' +
+                ", last_name='" + lastName + '\'' +
                 ", dob='" + dob + '\'' +
                 ", email='" + email + '\'' +
-                ", phone_number=" + phone_number +
+                ", phone_number=" + phoneNumber +
                 ", pets='" + pets + '\'' +
                 '}';
     }
