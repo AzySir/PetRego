@@ -58,9 +58,12 @@ public class Owner {
         this.pets = pets;
     }
 
-    public Owner(String firstName, String lastName) {
+    //Construct for V1 API Services
+    public Owner(String firstName, String lastName, String dob, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.dob = dob;
+        this.email = email;
     }
 
     //<------------- End of Constructors --------------->

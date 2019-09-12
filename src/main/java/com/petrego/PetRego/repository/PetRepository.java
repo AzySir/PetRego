@@ -23,7 +23,7 @@ import java.util.List;
 public interface PetRepository extends JpaRepository<Pet, Long> {
 
         //V1 Api Query - To Get ALL Pet Columns in the Database by Pet_Name via Custom Query(which includes enhancements)
-        @Query(value = "SELECT p FROM Pet p WHERE p.petName = ?1")
+        @Query(value = "SELECT NEW Pet(p.petName, p.petType, p.petFood) FROM Pet p WHERE p.petName = ?1")
         List<Pet> findByName(String search_name);
 
         //V2 Api Query - To Get ALL Pet Columns in the Database by Pet_Name via Custom Query(which includes enhancements)

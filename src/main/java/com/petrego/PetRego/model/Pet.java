@@ -54,7 +54,6 @@ public class Pet {
 
     }
 
-
     //Constructor for V1 Purpose
     public Pet(String petName, String petType, String petFood) {
         this.petName = petName;
