@@ -3,6 +3,7 @@ package com.petrego.PetRego.controller;
 import com.petrego.PetRego.exception.ResourceNotFoundException;
 import com.petrego.PetRego.model.Pet;
 import com.petrego.PetRego.repository.PetRepository;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,15 +46,8 @@ public class PetController {
     //Get Pet(s) By Name
     @GetMapping("/v1/pet/name/{petname}")
     public List<Pet> getPetByName(@PathVariable(value = "petname") String petName) {
-        List<Pet> petList = petRepository.findByName(petName); //Retrieve SQL Query where the pet_name = value passed in API
-        List<Pet> filterByNameList = new ArrayList<Pet>(); //Declare a filtered list
-        //Loop through the unfiltered list and if the unfiltered list has the name then add it to the filter list
-        for (Pet p : petList) {
-            if (p.getPetName().equals(petName)) {
-                filterByNameList.add(p);
-            }
-        }
-        return filterByNameList;
+        return petRepository.findByName(petName); //Retrieve SQL Query where the pet_name = value passed in API
+//        return petList;
     }
 
     //Get Pet By Owner Id - This is returned as a    list because the owner can have many pets
