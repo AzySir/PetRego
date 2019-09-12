@@ -80,7 +80,7 @@ public class Owner {
         return firstName;
     }
 
-    public void setFirstName(String first_name) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -88,7 +88,7 @@ public class Owner {
         return lastName;
     }
 
-    public void setLastName(String last_name) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -132,7 +132,7 @@ public class Owner {
                 ", last_name='" + lastName + '\'' +
                 ", dob='" + dob + '\'' +
                 ", email='" + email + '\'' +
-                ", phone_number=" + phoneNumber +
+                ", phone_number='" + phoneNumber + '\'' +
                 ", pets='" + pets + '\'' +
                 '}';
     }

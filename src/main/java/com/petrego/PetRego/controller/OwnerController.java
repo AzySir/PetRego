@@ -65,6 +65,7 @@ public class OwnerController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> addOwner(@RequestBody Owner ownerDetails) {
         //Create the object from the JSON Post Request
+        System.out.println(ownerDetails);
         Owner o = new Owner(ownerDetails.getFirstName(), ownerDetails.getLastName(), ownerDetails.getDob(),
                 ownerDetails.getEmail(), ownerDetails.getPhoneNumber(), ownerDetails.getPets());
         ownerRepository.save(o); //Inject into Database via JPA

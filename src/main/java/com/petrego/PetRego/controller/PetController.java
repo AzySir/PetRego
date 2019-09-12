@@ -38,18 +38,18 @@ public class PetController {
 
     //Get Pet By Id
     @GetMapping("/v1/pet/{id}")
-    public Pet getPetById(@PathVariable(value = "id") Long pet_id) {
-        return petRepository.findById(pet_id).orElseThrow(() -> new ResourceNotFoundException("Pet", "Id", pet_id));
+    public Pet getPetById(@PathVariable(value = "id") Long petId) {
+        return petRepository.findById(petId).orElseThrow(() -> new ResourceNotFoundException("Pet", "Id", petId));
     }
 
     //Get Pet(s) By Name
     @GetMapping("/v1/pet/name/{petname}")
-    public List<Pet> getPetByName(@PathVariable(value = "petname") String pet_name) {
-        List<Pet> petList = petRepository.findByName(pet_name); //Retrieve SQL Query where the pet_name = value passed in API
+    public List<Pet> getPetByName(@PathVariable(value = "petname") String petName) {
+        List<Pet> petList = petRepository.findByName(petName); //Retrieve SQL Query where the pet_name = value passed in API
         List<Pet> filterByNameList = new ArrayList<Pet>(); //Declare a filtered list
         //Loop through the unfiltered list and if the unfiltered list has the name then add it to the filter list
         for (Pet p : petList) {
-            if (p.getPetName().equals(pet_name)) {
+            if (p.getPetName().equals(petName)) {
                 filterByNameList.add(p);
             }
         }
@@ -58,12 +58,12 @@ public class PetController {
 
     //Get Pet By Owner Id - This is returned as a    list because the owner can have many pets
     @GetMapping("/v1/pet/owner/{ownerid}")
-    public List<Pet> getPetByOwnerId(@PathVariable(value = "ownerid") Long owner_id) {
-        List<Pet> petList = petRepository.findByOwnerId(owner_id);; //Retrieve SQL Query where the pet_name = value passed in API
+    public List<Pet> getPetByOwnerId(@PathVariable(value = "ownerid") Long ownerId) {
+        List<Pet> petList = petRepository.findByOwnerId(ownerId);; //Retrieve SQL Query where the pet_name = value passed in API
         List<Pet> filterByOwnerList = new ArrayList<Pet>(); //Declare a filtered list
         //Loop through the unfiltered list and if the unfiltered list has the name then add it to the filter list
         for (Pet p : petList) {
-            if (p.getOwnerId().equals(owner_id)) {
+            if (p.getOwnerId().equals(ownerId)) {
                 filterByOwnerList.add(p);
             }
         }
@@ -71,11 +71,9 @@ public class PetController {
     }
 
 
-
-
     //<!---------- PUT / POST ---------------->
     //PUT - Single Pet
-        @PutMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
+    @PutMapping(path = "/v1/pet", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> addPet(@RequestBody Pet petDetails) {
         Pet p = new Pet(petDetails.getPetName(), petDetails.getPetType(), petDetails.getFoodType(petDetails.getPetType()), petDetails.getAge(), petDetails.getOwnerId());
@@ -101,14 +99,14 @@ public class PetController {
 
     //Multiple API Version handling
     @GetMapping("/v2/pet/name/{name}")
-    public List<Pet> getPetByNameNew(@PathVariable(value = "name") String pet_name) {
-        return petRepository.findByNameNew(pet_name);
+    public List<Pet> getPetByNameNew(@PathVariable(value = "name") String petName) {
+        return petRepository.findByNameNew(petName);
     }
 
     //Multiple API Version handling
     @GetMapping("/v2/pet/owner/{ownerid}")
-    public List<Pet> getPetByOwnerIdNew(@PathVariable(value = "ownerid") Long owner_id) {
-        return petRepository.findByOwnerId(owner_id);
+    public List<Pet> getPetByOwnerIdNew(@PathVariable(value = "ownerid") Long ownerId) {
+        return petRepository.findByOwnerId(ownerId);
     }
 
     //<!---- END OF API V2.0 ----------- >
